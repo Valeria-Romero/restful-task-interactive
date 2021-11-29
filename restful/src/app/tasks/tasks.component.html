@@ -1,0 +1,21 @@
+<p>Tasks</p>
+<button (click) = "getTasks()">Get tasks</button>
+
+<div *ngFor = "let task of allTasks">
+    <div style="padding: 10px; margin-bottom: 10px;">
+        <div>
+            <p>Task title: {{task.title}}</p> 
+        </div>
+        <form (submit)= "findTask($event)">
+            <input type="hidden" value="{{task.title}}" id="title">
+            <button type="submit">
+                Show information
+            </button>
+        </form>
+    </div>
+</div>
+
+<div *ngIf="task.title">
+    <p>Title: {{task.title}}</p>
+    <p>Description: {{task.description}}</p>
+</div>
